@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicTacToe2024.MainPage"
+             Title="Tic Tac Toe">
+
+    <ScrollView>
+        <VerticalStackLayout x:Name="MainLayout" VerticalOptions="Start">
+            <Grid x:Name="TopGrid" ColumnDefinitions="*,2*" RowDefinitions="*">
+                <Label x:Name="whichplayerlabel" HorizontalOptions="Start" Text="Click Start Game to Begin"/>
+                <HorizontalStackLayout x:Name="GridSizeStack" Grid.Row="0" Grid.Column="1" HorizontalOptions="End">
+                    <Label Text="Use Drawing" HorizontalOptions="End"></Label>
+                    <Switch x:Name="shapesSwitch" HorizontalOptions="End" Toggled="shapesSwitch_Toggled"/>
+                </HorizontalStackLayout>
+            </Grid>
+            <Grid x:Name="GridPageContent" BackgroundColor="CornflowerBlue"
+    HeightRequest="300" WidthRequest="300"
+    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="6" ColumnSpacing="6" Padding="6">
+                <!-- Content added here at runtime -->
+
+            </Grid>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Size: " VerticalOptions="Center" />
+                <Entry x:Name="GridSize" Placeholder="00" Keyboard="Numeric" Text="" />
+            </HorizontalStackLayout>
+            <Button x:Name="StartBtn"  Text="Start Game" Clicked="StartBtn_Clicked" WidthRequest="150"/>
+            
+            <!-- This is redundant as clicking on the squares works much better anyway
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Row: " VerticalOptions="Center" />
+                <Entry x:Name="EntryR" Placeholder="00" Keyboard="Numeric" />
+                <Label Text="Col: " VerticalOptions="Center" />
+                <Entry x:Name="EntryC" Placeholder="00" Keyboard="Numeric" />
+                <Button x:Name="BtnMove" Text="Move"
+                  Margin="4, 1, 1, 1"
+                  Clicked="BtnMove_Clicked"/>
+            </HorizontalStackLayout>
+            -->
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
