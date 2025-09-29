@@ -1,1 +1,1 @@
-# DotNetMauiCoursework
+# .NET Maui College Coursework
