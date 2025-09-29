@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicTacToeApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="10"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            
+            <!-- Grid Size Input -->
+            <HorizontalStackLayout
+                HorizontalOptions="Center">
+                <Label
+                    Text="Grid Size: "
+                    VerticalOptions="Center"/>
+                <Entry
+                    x:Name="GridSizeEntry"
+                    Placeholder="Enter grid size"
+                    Keyboard="Numeric"
+                    WidthRequest="120"/>
+            </HorizontalStackLayout>
+
+            <!-- Buttons -->
+            <HorizontalStackLayout
+                HorizontalOptions="Center">
+                <Button
+                    x:Name="StartButton"
+                    Text="Start"
+                    Clicked="OnStartClicked"/>
+                <Button
+                    x:Name="ResetButton"
+                    Text="Reset"
+                    IsEnabled="False"
+                    Clicked="OnResetClicked"/>
+            </HorizontalStackLayout>
+
+            <!-- Game grid -->
+            <Grid
+                x:Name="GameGrid"
+                Padding="2"
+                BackgroundColor="CornflowerBlue"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HeightRequest="300"
+                WidthRequest="300">
+            </Grid>
+
+            <!-- Player Turn Indicator -->
+            <Label
+                x:Name="PlayerTurnLabel"
+                Text=""
+                HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
