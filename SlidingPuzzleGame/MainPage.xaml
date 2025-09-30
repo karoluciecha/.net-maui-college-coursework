@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SlidingPuzzleGame.MainPage">
+    <StackLayout x:Name="stackLayout" Padding="20" SizeChanged="OnStackSizeChanged">
+        <!-- Timer label -->
+        <Label x:Name="timeLabel" Text="Time: 00:00:00" FontSize="Large" HorizontalOptions="Center"></Label>
+
+        <!-- Layout for Puzzle Tiles -->
+        <AbsoluteLayout x:Name="absoluteLayout"></AbsoluteLayout>
+
+        <!-- Button to Shuffle Tiles -->
+        <Button x:Name="randomizeButton" Text="Randomize" Clicked="OnRandomizeButtonClicked"></Button>
+    </StackLayout>
+</ContentPage>
