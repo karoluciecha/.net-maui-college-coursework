@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WordleApp.Views.HistoryScreen"
+             Title="Wordle - History"
+             BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <ContentPage.Content>
+        <VerticalStackLayout Padding="20">
+            <!-- Title -->
+            <Label Text="Game History"
+                   FontSize="30"
+                   HorizontalOptions="Center"
+                   Margin="0, 10, 0, 0" />
+
+            <!-- Subtitle -->
+            <Label Text="Showing last 15 attempts"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   Margin="0, 0, 0, 30" />
+
+            <!-- Centered Table -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Grid RowSpacing="1" ColumnSpacing="1"
+                      BackgroundColor="White"
+                      Padding="1"
+                      WidthRequest="600">
+                    <!-- Adjust width to fit content -->
+                    <!-- Row Definitions -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <!-- Header Row -->
+                        <RowDefinition Height="*" />
+                        <!-- Data Rows -->
+                    </Grid.RowDefinitions>
+
+                    <!-- Column Definitions -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1.5*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1.5*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Header Row -->
+                    <Label Text="Player Name"
+                           FontSize="18"
+                           BackgroundColor="{DynamicResource HeaderBackgroundColor}"
+                           TextColor="{DynamicResource HeaderTextColor}"
+                           Padding="10, 5"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Grid.Row="0" Grid.Column="0" />
+                    <Label Text="Attempt Time"
+                           FontSize="18"
+                           BackgroundColor="{DynamicResource HeaderBackgroundColor}"
+                           TextColor="{DynamicResource HeaderTextColor}"
+                           Padding="10, 5"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Grid.Row="0" Grid.Column="1" />
+                    <Label Text="Trials"
+                           FontSize="18"
+                           BackgroundColor="{DynamicResource HeaderBackgroundColor}"
+                           TextColor="{DynamicResource HeaderTextColor}"
+                           Padding="10, 5"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Grid.Row="0" Grid.Column="2" />
+                    <Label Text="Game Date"
+                           FontSize="18"
+                           BackgroundColor="{DynamicResource HeaderBackgroundColor}"
+                           TextColor="{DynamicResource HeaderTextColor}"
+                           Padding="10, 5"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Grid.Row="0" Grid.Column="3" />
+
+                    <!-- Records -->
+                    <CollectionView Grid.Row="1" Grid.ColumnSpan="4"
+                                    ItemsSource="{Binding HistoryRecords}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid RowSpacing="1" ColumnSpacing="1"
+                                      BackgroundColor="{DynamicResource BorderColor}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="1.5*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1.5*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding PlayerName}"
+                                           FontSize="16"
+                                           BackgroundColor="{DynamicResource CellBackgroundColor}"
+                                           Padding="10, 5"
+                                           Margin="0.2"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           Grid.Column="0" />
+                                    <Label Text="{Binding ElapsedTime, StringFormat='{}{0:mm\\:ss}'}"
+                                           FontSize="16"
+                                           BackgroundColor="{DynamicResource CellBackgroundColor}"
+                                           Padding="10, 5"
+                                           Margin="0.2"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           Grid.Column="1" />
+                                    <Label Text="{Binding Attempts}"
+                                           FontSize="16"
+                                           BackgroundColor="{DynamicResource CellBackgroundColor}"
+                                           Padding="10, 5"
+                                           Margin="0.2"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           Grid.Column="2" />
+                                    <Label Text="{Binding PlayedAt, StringFormat='{}{0:MM/dd/yyyy HH:mm}'}"
+                                           FontSize="16"
+                                           BackgroundColor="{DynamicResource CellBackgroundColor}"
+                                           Padding="10, 5"
+                                           Margin="0.2"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           Grid.Column="3" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </HorizontalStackLayout>
+            <Button Style="{StaticResource BlueEnabledButton}" Text="Back" FontSize="15" Margin="0, 20, 0, 0" Padding="20, 10" HorizontalOptions="Center" Clicked="OnBackButtonClicked" />
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

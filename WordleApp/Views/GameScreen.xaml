@@ -1,0 +1,61 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WordleApp.Views.GameScreen"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             Title="Wordle - Game">
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Player Info and Elapsed Time -->
+                <RowDefinition Height="*" />
+                <!-- Scrollable Rows -->
+                <RowDefinition Height="Auto" />
+                <!-- Fixed Keyboard -->
+            </Grid.RowDefinitions>
+            <VerticalStackLayout Grid.Row="0" Padding="10" VerticalOptions="Start">
+                <!-- Current Player -->
+                <Label x:Name="PlayerNameLabel" Text="Current Player: " FontSize="18" HorizontalOptions="Center" VerticalOptions="Start" />
+
+                <!-- Elapsed Time -->
+                <Label x:Name="ElapsedTimeLabel" Text="Elapsed Time: 00:00" FontSize="18" HorizontalOptions="Center" VerticalOptions="Start" />
+
+                <!-- Play Again Button -->
+                <Button x:Name="PlayAgainButton" Style="{StaticResource BlueEnabledButton}" Text="Play Again" FontSize="16" HorizontalOptions="Center" VerticalOptions="Start" IsVisible="False" Clicked="OnPlayAgainClicked" Margin="0, 10, 0, 0"/>
+
+            </VerticalStackLayout>
+            <ScrollView Grid.Row="1" Padding="10" VerticalOptions="FillAndExpand">
+                <!-- Letter Grid -->
+                <Grid x:Name="LetterGrid"
+                      RowSpacing="10"
+                      ColumnSpacing="0"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <!-- Dynamically populated -->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </ScrollView>
+            <!-- Keyboard -->
+            <Grid x:Name="KeyboardGrid" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="End" RowSpacing="5" ColumnSpacing="5" Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <!-- Use dynamic column spacing -->
+                </Grid.ColumnDefinitions>
+                <!-- Populate dynamically in code-behind -->
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

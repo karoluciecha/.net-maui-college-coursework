@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimplePaint.MainPage"
+             Title=""
+             BackgroundColor="White">
+
+    <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <!-- Drawing Canvas with Border -->
+        <Frame BorderColor="Black" CornerRadius="10" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <GraphicsView x:Name="CanvasView" StartInteraction="CanvasView_StartInteraction" DragInteraction="CanvasView_DragInteraction" EndInteraction="CanvasView_EndInteraction" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            </Grid>
+        </Frame>
+
+        <!-- Control Buttons for Color, Shape, and Brush Size -->
+        <HorizontalStackLayout Spacing="10" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Padding="5">
+
+            <!-- Brush Size Slider -->
+            <HorizontalStackLayout VerticalOptions="CenterAndExpand" Spacing="5">
+                <Label Text="Brush Size" VerticalOptions="Center" />
+                <Slider x:Name="BrushSizeSlider" Minimum="1" Maximum="10" WidthRequest="150" MinimumTrackColor="Purple" MaximumTrackColor="LightGray" HorizontalOptions="StartAndExpand" ValueChanged="BrushSizeSlider_ValueChanged"/>
+            </HorizontalStackLayout>
+
+            <!-- Color Button and Dropdown Menu -->
+            <Button Text="Colors" Clicked="ToggleMenuVisibility" WidthRequest="76"/>
+
+            <!-- Shape Button and Dropdown Menu -->
+            <Button Text="Shapes" Clicked="ToggleMenuVisibility" WidthRequest="76"/>
+
+            <!-- Undo and Redo Buttons -->
+            <Button Text="Undo" BackgroundColor="Orange" Clicked="UndoRedoButton_Clicked" Margin="20, 0, 0, 0" WidthRequest="76"/>
+            <Button Text="Redo" BackgroundColor="DeepSkyBlue" Clicked="UndoRedoButton_Clicked" WidthRequest="76"/>
+
+            <!-- Clear Canvas Button -->
+            <Button Text="Clear" BackgroundColor="Red" Clicked="ClearButton_Clicked" Margin="20, 0, 20, 0" WidthRequest="76"/>
+
+            <!-- Save and Load Buttons -->
+            <Button Text="Save" BackgroundColor="Green" Clicked="SaveLoadButton_Clicked" WidthRequest="76"/>
+            <Button Text="Load" BackgroundColor="Purple" Clicked="SaveLoadButton_Clicked" WidthRequest="76"/>
+        </HorizontalStackLayout>
+
+        <!-- Color Selection Dropdown Menu -->
+        <HorizontalStackLayout x:Name="ColorMenu" IsVisible="False" Spacing="5" Padding="5" HorizontalOptions="CenterAndExpand">
+            <Button Text="Black" BackgroundColor="Black" TextColor="White" Clicked="SetColor" />
+            <Button Text="White" BackgroundColor="White" BorderColor="Black" Clicked="SetColor" TextColor="Black" BorderWidth="1"/>
+            <Button Text="Yellow" BackgroundColor="Yellow" Clicked="SetColor" TextColor="Black"/>
+            <Button Text="Blue" BackgroundColor="Blue" TextColor="White" Clicked="SetColor" />
+            <Button Text="Red" BackgroundColor="Red" TextColor="White" Clicked="SetColor" />
+            <Button Text="Green" BackgroundColor="Green" Clicked="SetColor" />
+        </HorizontalStackLayout>
+
+        <!-- Shape Selection Dropdown Menu -->
+        <HorizontalStackLayout x:Name="ShapeMenu" IsVisible="False" Spacing="5" Padding="5" HorizontalOptions="CenterAndExpand">
+            <Button Text="Draw" Clicked="SetShape" />
+            <Button Text="Line" Clicked="SetShape" />
+            <Button Text="Circle" Clicked="SetShape" />
+            <Button Text="Rectangle" Clicked="SetShape" />
+            <Button Text="Triangle" Clicked="SetShape" />
+            <Button Text="Square" Clicked="SetShape" />
+            <Button Text="Hexagon" Clicked="SetShape" />
+        </HorizontalStackLayout>
+
+    </StackLayout>
+</ContentPage>
